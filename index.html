@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Red or Black Card Game</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.5.0/dist/semantic.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.3/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.5.0/dist/semantic.min.js"></script>
+</head>
+<body>
+
+<div class="ui container">
+    <!-- Title Section -->
+    <div class="ui segment">
+        <div class="ui left aligned header" style="font-size: 2em; font-weight: bold;">
+            <span style="color: red;">Red |</span> <span style="color: black;">| Black</span>
+        </div>
+    </div>
+
+    <!-- Cards Section -->
+    <div class="ui segments">
+        <div class="ui blue inverted segment">
+            <h3 class="ui left aligned header">Cards</h3>
+        </div>
+        <div class="ui segment">
+            <!-- Cards display area -->
+            <div id="cards" class="ui five column centered grid"></div>
+
+            <!-- Control area for Draw Hand button, Red/Black buttons, and result message -->
+            <div class="ui grid" style="margin-top: 10px; align-items: center;">
+                <div class="left aligned eight wide column">
+                    <!-- Draw Hand button initially visible -->
+                    <button id="draw-hand" class="ui button primary">Draw Hand</button>
+                    
+                    <!-- Red/Black buttons, initially hidden -->
+                    <div id="color-buttons" class="ui buttons" style="display: none; margin-top: 10px;">
+                        <button id="select-red" class="ui red button">Red</button>
+                        <button id="select-black" class="ui black button">Black</button>
+                    </div>
+                </div>
+
+                <!-- Result message area -->
+                <div class="eight wide column left aligned" id="result-message" style="font-size: 1.2em; color: black;"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Stats Section -->
+    <div class="ui segments">
+        <div class="ui black inverted segment">
+            <h3 class="ui left aligned header">Stats</h3>
+        </div>
+        <div class="ui segment">
+            <div class="ui segment">
+                <div class="ui four column divided grid" style="text-align: center;">
+                    <div class="column">
+                        <div>Wins: <span id="wins">0</span></div>
+                    </div>
+                    <div class="column">
+                        <div>Win Percentage: <span id="win-percentage">NA</span>%</div>
+                    </div>
+                    <div class="column">
+                        <div>Cards Remaining: <span id="cards-remaining">52</span></div>
+                        <div class="ui green progress" style="margin-top: 5px;">
+                            <div class="bar" style="width: 100%;"></div>
+                        </div>
+                    </div>
+                    <div class="column">
+                        <button id="reset-stats" class="ui button">Reset Stats</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+   <!-- History Section -->
+    <div class="ui segments">
+        <div class="ui green inverted segment">
+            <h3 class="ui left aligned header">History</h3>
+        </div>
+        <div class="ui segment" style="min-height: 50px;">
+            <div class="ui list" id="history-content">
+                <!-- History items will be here -->
+            </div>
+        </div>
+    </div>
+
+   <!-- Cheats Section -->
+    <div class="ui segments">
+        <div class="ui red inverted segment">
+            <h3 class="ui left aligned header">
+                Cheats
+                <button id="toggle-cheats" class="ui inverted red button small" style="margin-left: 10px;">Show</button>
+            </h3>
+        </div>
+        <!-- Placeholder segment for white space while cheats hidden-->
+        <div id="cheats-placeholder" class="ui segment" style="min-height: 25px; display: block;"></div>
+        <div class="ui segment" id="cheats-content" style="display: none; min-height: 50px;">
+            <p>Cards Left by color: 
+                <span class="ui red label" id="cheats-red">26</span> 
+                | 
+                <span class="ui black label" id="cheats-black">26</span>
+            </p>
+        </div>
+</div>
+
+</div>
+
+<script src="cardGame.js"></script>
+</body>
+</html>
